@@ -83,7 +83,7 @@ for i in range(columns):
     #print(res) # uncomment to see full list of arm1 and arm2 angles as they generate
     
 # set up MQTT
-broker = '67.253.32.232' # Change this to Chris's IP (67.253.32.232). Local IP for running on laptop: 127.0.0.1
+broker = '127.0.0.1' # Change this to Chris's IP. Local IP for running on laptop: 127.0.0.1
 topic1 = 'ME035' # Change this to the topic chosen
 #topic2 = 'wait' # need to determine what this means in class tomorrow morning? Do we post a single value or one each iteration
 client_name = 'elijah_client'
