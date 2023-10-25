@@ -131,7 +131,7 @@ def whenCalled(topic, msg): # want to attempt making three separate callbacks if
             
 def main():
     try:
-        driver = mqtt.MQTTClient("GoPhillies", "10.243.28.115", keepalive=60)
+        driver = mqtt.MQTTClient("GoPhillies", "ip_address", keepalive=60)
         print('Connected')
         driver.connect()
         driver.set_callback(whenCalled)
