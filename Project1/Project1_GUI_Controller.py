@@ -2,12 +2,13 @@
 
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 import paho.mqtt.client as mqtt
 import tkinter as tk
 import time
 
 #connect to broker
-broker_address = ("10.243.28.115")
+broker_address = ("10.247.52.50")
 client = mqtt.Client("KelliKowalick")
 client.connect(broker_address)
 client.subscribe("ME035")
@@ -57,7 +58,7 @@ def lift():
     time.sleep(0.1)
    
 def doneMessage():
-    tk.messagebox.showinfo(title='Result', message="Operation Complete!")
+    messagebox.showinfo(title='Result', message="Operation Complete!")
     
 def drop():
     doneMessage()
@@ -91,12 +92,9 @@ StopBtn = ttk.Button(frm, text="Emergency Break", style="C.TButton", command=sto
 DropBtn = ttk.Button(frm, text="Release", style="C.TButton", command=drop).grid(column=0, row=6)
 GrabBtn = ttk.Button(frm, text="Pick Up", style="C.TButton", command=grab).grid(column=2, row=6)
 ttk.Label(frm, text="Arm One Angle (180-260):").grid(column=0, row=4)
-#ArmOneSlider = ttk.Scale(frm, from_=180, to=260, variable=current_value, command=angleOne).grid(column=1, row=4)
 ArmOneEnter = ttk.Entry(frm, textvariable=current_value).grid(column=1, row=4)
 ArmOneButton = ttk.Button(frm, text="Enter", style="C.TButton", command=angleOne).grid(column=2, row=4)
 ttk.Label(frm, text="Arm Two Angle (65-140):").grid(column=0, row=5)
 ArmTwoEnter = ttk.Entry(frm, textvariable=current_value2).grid(column=1, row=5)
-ArmTwoButton = ttk.Button(frm, text="Enter", style="C.TButton", command=angleTwo).grid(column=2, row=5)
-#ArmTwoSlider = ttk.Scale(frm, from_=650, to=1400, variable=current_value2, command=angleTwo).grid(column=1, row=5)
 
 root.mainloop()
